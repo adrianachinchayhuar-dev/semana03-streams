@@ -1,8 +1,10 @@
 const fs = require('fs');
+const zlib = require('zlib');
 
-const writable = fs.createWriteStream('salida.txt');
+const readStream = fs.createReadStream('entrada.txt');
+const writeStream = fs.createWriteStream('entrada.txt.gz');
+const gzip = zlib.createGzip();
 
-writable.write('Este es un mensaje de prueba.\n');
-writable.end('Fin del mensaje.');
+readStream.pipe(gzip).pipe(writeStream);
 
-writable.on('finish', () => console.log('Escritura completada.'));
+writeStream.on('finish', () => console.log('Archivo comprimido exitosamente.'));
