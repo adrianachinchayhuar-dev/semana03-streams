@@ -1,0 +1,3 @@
+hola, este es el desarrollo de la tarea 1.
+los streams transform permiten modificar los datos mientras fluyen.
+todo este texto sera convertido a mayusculas.
